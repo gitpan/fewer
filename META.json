@@ -1,0 +1,22 @@
+{
+   "resources" : {
+      "repository" : "origin"
+   },
+   "meta-spec" : {
+      "version" : 1.4,
+      "url" : "http://module-build.sourceforge.net/META-spec-v1.4.html"
+   },
+   "generated_by" : "Dist::Zilla version 1.100160",
+   "version" : "0.100220",
+   "name" : "fewer",
+   "author" : [
+      "Ricardo SIGNES <rjbs@cpan.org>"
+   ],
+   "license" : "perl",
+   "requires" : {
+      "less" : "0.03",
+      "ExtUtils::MakeMaker" : "6.11"
+   },
+   "abstract" : "use fewer units of a countable resource"
+}
+
