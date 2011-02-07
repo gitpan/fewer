@@ -2,32 +2,50 @@
 use strict;
 use warnings;
 
+BEGIN { require 5.010; }
 
-
-use ExtUtils::MakeMaker 6.11;
+use ExtUtils::MakeMaker 6.31;
 
 
 
 my %WriteMakefileArgs = (
-                       'test' => {
-                                   'TESTS' => 't/*.t'
-                                 },
-                       'NAME' => 'fewer',
-                       'DISTNAME' => 'fewer',
-                       'AUTHOR' => 'Ricardo SIGNES <rjbs@cpan.org>',
-                       'ABSTRACT' => 'use fewer units of a countable resource',
-                       'EXE_FILES' => [],
-                       'VERSION' => '0.100220',
-                       'LICENSE' => 'perl',
-                       'PREREQ_PM' => {
-                                        'less' => '0.03',
-                                        'ExtUtils::MakeMaker' => '6.11'
-                                      }
-                     );
+  'ABSTRACT' => 'use fewer units of a countable resource',
+  'AUTHOR' => 'Ricardo SIGNES <rjbs@cpan.org>',
+  'BUILD_REQUIRES' => {
+    'Test::More' => '0.96'
+  },
+  'CONFIGURE_REQUIRES' => {
+    'ExtUtils::MakeMaker' => '6.31'
+  },
+  'DISTNAME' => 'fewer',
+  'EXE_FILES' => [],
+  'LICENSE' => 'perl',
+  'NAME' => 'fewer',
+  'PREREQ_PM' => {
+    'less' => '0.03'
+  },
+  'VERSION' => '0.200',
+  'test' => {
+    'TESTS' => 't/*.t'
+  }
+);
 
 
-delete $WriteMakefileArgs{LICENSE}
-  unless eval { ExtUtils::MakeMaker->VERSION(6.31) };
+unless ( eval { ExtUtils::MakeMaker->VERSION(6.56) } ) {
+  my $br = delete $WriteMakefileArgs{BUILD_REQUIRES};
+  my $pp = $WriteMakefileArgs{PREREQ_PM};
+  for my $mod ( keys %$br ) {
+    if ( exists $pp->{$mod} ) {
+      $pp->{$mod} = $br->{$mod} if $br->{$mod} > $pp->{$mod};
+    }
+    else {
+      $pp->{$mod} = $br->{$mod};
+    }
+  }
+}
+
+delete $WriteMakefileArgs{CONFIGURE_REQUIRES}
+  unless eval { ExtUtils::MakeMaker->VERSION(6.52) };
 
 WriteMakefile(%WriteMakefileArgs);
 

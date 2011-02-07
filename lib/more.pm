@@ -1,13 +1,12 @@
 use 5.010;
 use strict;
-package fewer;
+package more;
 BEGIN {
-  $fewer::VERSION = '0.200';
+  $more::VERSION = '0.200';
 }
 use less 0.03 ();
 use base 'less';
-# ABSTRACT: use fewer units of a countable resource
-sub stash_name { 'less' }
+# ABSTRACT: use more of a resource
 1;
 
 
@@ -16,7 +15,7 @@ sub stash_name { 'less' }
 
 =head1 NAME
 
-fewer - use fewer units of a countable resource
+more - use more of a resource
 
 =head1 VERSION
 
@@ -24,7 +23,7 @@ version 0.200
 
 =head1 SYNOPSIS
 
-  use fewer 'top level namespaces';
+  use more 'variables';
 
 =head1 DESCRIPTION
 
@@ -51,24 +50,15 @@ In the library:
   }
 
 This allowed for an explosion of highly adaptive implementions, accounting for
-a complex matrix of "less" interactions.  Unfortunately, with the introduction
-of new strictures in perl5 version 18, the following code will stop working:
+a complex matrix of "less" interactions.  Unfortunately, there is no mechanism
+for requesting that I<more> of something be used, to help do our part as good
+consumers.  The often-heard advice to simply write C<< no less 'spending' >> is
+insufficient.  That only means we should maintain our current levels.  We want
+to request an increase.
 
-  use strict 'English';
-  use less 'filehandles';
+This library corrects this deficiency by allowing the user to write:
 
-To clarify the matter for our foreign readership, "less" is used for things
-which are uncounted, while "fewer" is used for counted resources.
-
-This library corrects this error by allowing the user to write:
-
-  use fewer 'filehandles';
-
-Then, both of the following conditions will be true:
-
-  if ( less->of('filehandles') ) { ... }
-
-  if ( fewer->of('filehandles') ) { ... }
+  use more 'spending';
 
 =head1 AUTHOR
 
