@@ -1,15 +1,15 @@
 use 5.010;
 use strict;
 package more;
-BEGIN {
-  $more::VERSION = '0.200';
+{
+  $more::VERSION = '0.201';
 }
 use less 0.03 ();
-use base 'less';
+use parent 'less';
 # ABSTRACT: use more of a resource
 1;
 
-
+__END__
 
 =pod
 
@@ -19,7 +19,7 @@ more - use more of a resource
 
 =head1 VERSION
 
-version 0.200
+version 0.201
 
 =head1 SYNOPSIS
 
@@ -66,13 +66,9 @@ Ricardo SIGNES <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2011 by Ricardo SIGNES.
+This software is copyright (c) 2013 by Ricardo SIGNES.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-
-
-__END__
-

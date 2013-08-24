@@ -1,5 +1,10 @@
 Revision history for fewer
 
+0.201     2013-08-24 08:07:31 America/New_York
+          updated bug tracker, repo data
+
+          switch from base.pm to parent.pm
+
 0.200     2011-02-07 11:38:30 America/New_York
 
           use more 'more'
