@@ -21,17 +21,17 @@ my %WriteMakefileArgs = (
   "NAME" => "fewer",
   "PREREQ_PM" => {
     "less" => "0.03",
-    "parent" => "0",
-    "strict" => "0"
+    "parent" => 0,
+    "strict" => 0
   },
   "TEST_REQUIRES" => {
-    "File::Spec" => "0",
-    "IO::Handle" => "0",
-    "IPC::Open3" => "0",
+    "File::Spec" => 0,
+    "IO::Handle" => 0,
+    "IPC::Open3" => 0,
     "Test::More" => "0.96",
-    "warnings" => "0"
+    "warnings" => 0
   },
-  "VERSION" => "0.201",
+  "VERSION" => "0.202",
   "test" => {
     "TESTS" => "t/*.t"
   }

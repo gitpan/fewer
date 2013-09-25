@@ -2,7 +2,7 @@ use 5.010;
 use strict;
 package more;
 {
-  $more::VERSION = '0.201';
+  $more::VERSION = '0.202';
 }
 use less 0.03 ();
 use parent 'less';
@@ -19,7 +19,7 @@ more - use more of a resource
 
 =head1 VERSION
 
-version 0.201
+version 0.202
 
 =head1 SYNOPSIS
 
